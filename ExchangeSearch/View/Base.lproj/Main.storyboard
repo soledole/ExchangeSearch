@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kym-sF-X40">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainViewController-->
+        <scene sceneID="GQ8-TH-DkV">
+            <objects>
+                <viewController title="MainViewController" id="kym-sF-X40" customClass="MainViewController" customModule="ExchangeSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3mj-wb-lqg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cuS-DU-F4n">
+                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Wer-h6-7gZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="R5V-Mz-Lt5"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="First table"/>
+                                            <segment title="Second table"/>
+                                            <segment title="Third table"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="kym-sF-X40" eventType="valueChanged" id="c6V-6P-fb2"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ASj-hA-aYC">
+                                        <rect key="frame" x="0.0" y="50" width="343" height="684"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExchangeCell" id="hZv-ku-PAd">
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="343" height="43.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hZv-ku-PAd" id="uQg-pw-izQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4wN-xG-uhz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cuS-DU-F4n" firstAttribute="bottom" secondItem="4wN-xG-uhz" secondAttribute="bottom" id="2F3-CE-yTK"/>
+                            <constraint firstItem="4wN-xG-uhz" firstAttribute="trailing" secondItem="cuS-DU-F4n" secondAttribute="trailing" constant="16" id="8xH-tQ-xl6"/>
+                            <constraint firstItem="cuS-DU-F4n" firstAttribute="leading" secondItem="4wN-xG-uhz" secondAttribute="leading" constant="16" id="eYr-JH-8GO"/>
+                            <constraint firstItem="cuS-DU-F4n" firstAttribute="top" secondItem="4wN-xG-uhz" secondAttribute="top" id="s4Z-yC-6Uo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableChoosed" destination="Wer-h6-7gZ" id="RdJ-c1-gk8"/>
+                        <outlet property="tableExchange" destination="ASj-hA-aYC" id="OKi-V7-Pex"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6oR-Fh-1GJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="-656.1576354679803"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
