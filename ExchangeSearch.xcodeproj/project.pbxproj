@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60C3A6727C97DC7008A73A0 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60C3A6527C97DC7008A73A0 /* RateCell.swift */; };
+		D60C3A6827C97DC7008A73A0 /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3A6627C97DC7008A73A0 /* RateCell.xib */; };
 		D60F96AC27C535100014F6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60F96AB27C535100014F6A4 /* AppDelegate.swift */; };
 		D60F96AE27C535100014F6A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60F96AD27C535100014F6A4 /* SceneDelegate.swift */; };
 		D60F96B027C535100014F6A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60F96AF27C535100014F6A4 /* MainViewController.swift */; };
@@ -14,11 +16,15 @@
 		D60F96B527C535120014F6A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60F96B427C535120014F6A4 /* Assets.xcassets */; };
 		D60F96B827C535120014F6A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60F96B627C535120014F6A4 /* LaunchScreen.storyboard */; };
 		D60F96C327C5483B0014F6A4 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60F96C227C5483B0014F6A4 /* Exchange.swift */; };
+		D6A1BAAB27C96EFC00765B32 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1BAAA27C96EFC00765B32 /* RateViewController.swift */; };
 		D6DC75CC27C60BD1000060EA /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC75CA27C60BD1000060EA /* ExchangeCell.swift */; };
 		D6DC75CD27C60BD1000060EA /* ExchangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6DC75CB27C60BD1000060EA /* ExchangeCell.xib */; };
+		D6F7839C27CA47EF002EED08 /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7839B27CA47EF002EED08 /* Rates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D60C3A6527C97DC7008A73A0 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
+		D60C3A6627C97DC7008A73A0 /* RateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
 		D60F96A827C535100014F6A4 /* ExchangeSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60F96AB27C535100014F6A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D60F96AD27C535100014F6A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,8 +34,10 @@
 		D60F96B727C535120014F6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D60F96B927C535120014F6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D60F96C227C5483B0014F6A4 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		D6A1BAAA27C96EFC00765B32 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		D6DC75CA27C60BD1000060EA /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		D6DC75CB27C60BD1000060EA /* ExchangeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeCell.xib; sourceTree = "<group>"; };
+		D6F7839B27CA47EF002EED08 /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,8 @@
 				D60F96B127C535100014F6A4 /* Main.storyboard */,
 				D6DC75CA27C60BD1000060EA /* ExchangeCell.swift */,
 				D6DC75CB27C60BD1000060EA /* ExchangeCell.xib */,
+				D60C3A6527C97DC7008A73A0 /* RateCell.swift */,
+				D60C3A6627C97DC7008A73A0 /* RateCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				D60F96AF27C535100014F6A4 /* MainViewController.swift */,
+				D6A1BAAA27C96EFC00765B32 /* RateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -96,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				D60F96C227C5483B0014F6A4 /* Exchange.swift */,
+				D6F7839B27CA47EF002EED08 /* Rates.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60C3A6827C97DC7008A73A0 /* RateCell.xib in Resources */,
 				D6DC75CD27C60BD1000060EA /* ExchangeCell.xib in Resources */,
 				D60F96B827C535120014F6A4 /* LaunchScreen.storyboard in Resources */,
 				D60F96B527C535120014F6A4 /* Assets.xcassets in Resources */,
@@ -172,11 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A1BAAB27C96EFC00765B32 /* RateViewController.swift in Sources */,
 				D60F96B027C535100014F6A4 /* MainViewController.swift in Sources */,
 				D60F96AC27C535100014F6A4 /* AppDelegate.swift in Sources */,
 				D6DC75CC27C60BD1000060EA /* ExchangeCell.swift in Sources */,
 				D60F96C327C5483B0014F6A4 /* Exchange.swift in Sources */,
+				D6F7839C27CA47EF002EED08 /* Rates.swift in Sources */,
 				D60F96AE27C535100014F6A4 /* SceneDelegate.swift in Sources */,
+				D60C3A6727C97DC7008A73A0 /* RateCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,27 +39,144 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-d7-A6c">
+                                <rect key="frame" x="137.66666666666666" y="356" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="gem-0p-k12">
+                                        <rect key="frame" x="-121.66666666666666" y="40" width="343" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" systemColor="labelColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="XQw-2I-7v4"/>
+                                    <constraint firstAttribute="height" constant="100" id="vWn-xz-r8U"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4wN-xG-uhz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cuS-DU-F4n" firstAttribute="bottom" secondItem="4wN-xG-uhz" secondAttribute="bottom" id="2F3-CE-yTK"/>
+                            <constraint firstItem="Afx-d7-A6c" firstAttribute="centerX" secondItem="3mj-wb-lqg" secondAttribute="centerX" id="5Pg-Rw-34X"/>
                             <constraint firstItem="4wN-xG-uhz" firstAttribute="trailing" secondItem="cuS-DU-F4n" secondAttribute="trailing" constant="16" id="8xH-tQ-xl6"/>
+                            <constraint firstItem="Afx-d7-A6c" firstAttribute="centerY" secondItem="3mj-wb-lqg" secondAttribute="centerY" id="Bs1-9H-BrU"/>
                             <constraint firstItem="cuS-DU-F4n" firstAttribute="leading" secondItem="4wN-xG-uhz" secondAttribute="leading" constant="16" id="eYr-JH-8GO"/>
                             <constraint firstItem="cuS-DU-F4n" firstAttribute="top" secondItem="4wN-xG-uhz" secondAttribute="top" id="s4Z-yC-6Uo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="gem-0p-k12" id="kgk-zF-YRM"/>
                         <outlet property="tableChoosed" destination="Wer-h6-7gZ" id="RdJ-c1-gk8"/>
                         <outlet property="tableExchange" destination="ASj-hA-aYC" id="OKi-V7-Pex"/>
+                        <segue destination="5WE-2e-29W" kind="show" identifier="goToRateScreen" id="RS1-1v-b3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oR-Fh-1GJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="-656.1576354679803"/>
+            <point key="canvasLocation" x="-18" y="-656"/>
+        </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="4ua-19-DdY">
+            <objects>
+                <viewController id="5WE-2e-29W" customClass="RateViewController" customModule="ExchangeSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W0d-JU-g8R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AeS-eZ-gBc">
+                                <rect key="frame" x="16" y="20" width="343" height="704"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dolar amerykański" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woX-tb-maC">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="37"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wWq-Tz-KTG">
+                                        <rect key="frame" x="0.0" y="47" width="343" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8O-Cw-xCJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="4Rq-hr-kjV">
+                                                <rect key="frame" x="85.666666666666686" y="0.0" width="86" height="50"/>
+                                                <locale key="locale" localeIdentifier="pl"/>
+                                                <connections>
+                                                    <action selector="fromActionDP:" destination="5WE-2e-29W" eventType="valueChanged" id="mjR-Y3-dqv"/>
+                                                </connections>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-Yb-aD1">
+                                                <rect key="frame" x="171.66666666666666" y="0.0" width="85.666666666666657" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gh7-o0-xqe">
+                                                <rect key="frame" x="257.33333333333331" y="0.0" width="85.666666666666686" height="50"/>
+                                                <locale key="locale" localeIdentifier="pl"/>
+                                                <connections>
+                                                    <action selector="toActionDP:" destination="5WE-2e-29W" eventType="valueChanged" id="mep-2B-TxW"/>
+                                                </connections>
+                                            </datePicker>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3Nf-9Q-S6b"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pvq-NP-rf0">
+                                        <rect key="frame" x="0.0" y="107" width="343" height="597"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzh-dc-8rC">
+                                <rect key="frame" x="137.66666666666666" y="329" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="Rc2-jD-7zd">
+                                        <rect key="frame" x="-121.66666666666666" y="40" width="343" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" systemColor="labelColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="NCF-IJ-bPt"/>
+                                    <constraint firstAttribute="height" constant="100" id="upV-qQ-TLU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ajb-cA-rS2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dzh-dc-8rC" firstAttribute="centerY" secondItem="W0d-JU-g8R" secondAttribute="centerY" id="AkC-nz-V3H"/>
+                            <constraint firstItem="ajb-cA-rS2" firstAttribute="trailing" secondItem="AeS-eZ-gBc" secondAttribute="trailing" constant="16" id="BlI-6j-EMx"/>
+                            <constraint firstItem="AeS-eZ-gBc" firstAttribute="top" secondItem="ajb-cA-rS2" secondAttribute="top" constant="20" id="YCE-q9-vNo"/>
+                            <constraint firstItem="AeS-eZ-gBc" firstAttribute="leading" secondItem="ajb-cA-rS2" secondAttribute="leading" constant="16" id="tIO-j3-eFi"/>
+                            <constraint firstItem="dzh-dc-8rC" firstAttribute="centerX" secondItem="W0d-JU-g8R" secondAttribute="centerX" id="v6z-2e-3Fs"/>
+                            <constraint firstItem="AeS-eZ-gBc" firstAttribute="bottom" secondItem="ajb-cA-rS2" secondAttribute="bottom" id="yWH-T8-Ev5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9sM-c9-ch0"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Rc2-jD-7zd" id="slG-TR-eVL"/>
+                        <outlet property="currencyNameLabel" destination="woX-tb-maC" id="ITU-t7-cEg"/>
+                        <outlet property="fromDatePicker" destination="4Rq-hr-kjV" id="Qq8-5D-L0r"/>
+                        <outlet property="tableRate" destination="pvq-NP-rf0" id="gVg-zT-znx"/>
+                        <outlet property="toDatePicker" destination="gh7-o0-xqe" id="API-42-PJ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cr9-ac-IPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="917.60000000000002" y="-656.1576354679803"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
