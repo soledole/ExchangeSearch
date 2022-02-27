@@ -133,35 +133,18 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzh-dc-8rC">
-                                <rect key="frame" x="137.66666666666666" y="329" width="100" height="100"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="Rc2-jD-7zd">
-                                        <rect key="frame" x="-121.66666666666666" y="40" width="343" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="color" systemColor="labelColor"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="NCF-IJ-bPt"/>
-                                    <constraint firstAttribute="height" constant="100" id="upV-qQ-TLU"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ajb-cA-rS2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dzh-dc-8rC" firstAttribute="centerY" secondItem="W0d-JU-g8R" secondAttribute="centerY" id="AkC-nz-V3H"/>
                             <constraint firstItem="ajb-cA-rS2" firstAttribute="trailing" secondItem="AeS-eZ-gBc" secondAttribute="trailing" constant="16" id="BlI-6j-EMx"/>
                             <constraint firstItem="AeS-eZ-gBc" firstAttribute="top" secondItem="ajb-cA-rS2" secondAttribute="top" constant="20" id="YCE-q9-vNo"/>
                             <constraint firstItem="AeS-eZ-gBc" firstAttribute="leading" secondItem="ajb-cA-rS2" secondAttribute="leading" constant="16" id="tIO-j3-eFi"/>
-                            <constraint firstItem="dzh-dc-8rC" firstAttribute="centerX" secondItem="W0d-JU-g8R" secondAttribute="centerX" id="v6z-2e-3Fs"/>
                             <constraint firstItem="AeS-eZ-gBc" firstAttribute="bottom" secondItem="ajb-cA-rS2" secondAttribute="bottom" id="yWH-T8-Ev5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9sM-c9-ch0"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="Rc2-jD-7zd" id="slG-TR-eVL"/>
                         <outlet property="currencyNameLabel" destination="woX-tb-maC" id="ITU-t7-cEg"/>
                         <outlet property="fromDatePicker" destination="4Rq-hr-kjV" id="Qq8-5D-L0r"/>
                         <outlet property="tableRate" destination="pvq-NP-rf0" id="gVg-zT-znx"/>

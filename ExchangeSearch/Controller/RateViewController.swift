@@ -13,7 +13,6 @@ class RateViewController: UIViewController {
     @IBOutlet weak var fromDatePicker: UIDatePicker!
     @IBOutlet weak var toDatePicker: UIDatePicker!
     @IBOutlet weak var tableRate: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var currencyName = ""
     var currencyCode = ""
@@ -25,12 +24,13 @@ class RateViewController: UIViewController {
         super.viewDidLoad()
         
         currencyNameLabel.text = currencyName
-        activityIndicator.hidesWhenStopped = true
         tableRate.register(UINib(nibName: "RateCell", bundle: nil), forCellReuseIdentifier: "RateCell")
         
         tableRate.dataSource = self
         tableRate.dataSource = self
         tableRate.rowHeight = 60
+        tableRate.refreshControl = UIRefreshControl()
+        tableRate.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
         toDatePicker.isEnabled = false
         fromDatePicker.date = moveDaysInDate(from: currentDate, by: -1)
@@ -49,15 +49,14 @@ class RateViewController: UIViewController {
     
     @IBAction func toActionDP(_ sender: Any) {
         
-        fetchRates(date: getStringFromDate(with: fromDatePicker.date), date: getStringFromDate(with: toDatePicker.date))
+        fetchRates(from: getStringFromDate(with: fromDatePicker.date), to: getStringFromDate(with: toDatePicker.date))
     }
     
-    func fetchRates(date from: String, date to: String) {
+    func fetchRates(from date: String, to date2: String) {
         
-        self.activityIndicator.startAnimating()
         let rateURL = "https://api.nbp.pl/api/exchangerates/rates/"
         
-        let url = "\(rateURL+tableChoosedString)/\(currencyCode)/\(from)/\(to)/?format=json"
+        let url = "\(rateURL+tableChoosedString)/\(currencyCode)/\(date)/\(date2)/?format=json"
         print(url)
         
         if let url = URL(string: url) {
@@ -73,11 +72,11 @@ class RateViewController: UIViewController {
                             let results = try decoder.decode(Rate.self, from: safeData)
                             
                             //Special delay to show spinner
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             //DispatchQueue.main.async {
                                 self.ratesResults = results.rates
                                 self.tableRate.reloadData()
-                                self.activityIndicator.stopAnimating()
+                                self.tableRate.refreshControl?.endRefreshing()
                             }
                         } catch { print(error) }
                     }
@@ -89,7 +88,7 @@ class RateViewController: UIViewController {
     
     //MARK: - Secondary methods
     
-    func getStringFromDate(with date: Date) -> String {
+    private func getStringFromDate(with date: Date) -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -98,13 +97,18 @@ class RateViewController: UIViewController {
         return date
     }
     
-    func moveDaysInDate(from date: Date, by days: Int) -> Date {
+    private func moveDaysInDate(from date: Date, by days: Int) -> Date {
         
         var dateComponent = DateComponents()
         dateComponent.day = days
         let futureDate = Calendar.current.date(byAdding: dateComponent, to: date)
         
         return futureDate!
+    }
+    
+    @objc private func didPullToRefresh() {
+        
+        fetchRates(from: getStringFromDate(with: fromDatePicker.date), to: getStringFromDate(with: toDatePicker.date))
     }
     
 }

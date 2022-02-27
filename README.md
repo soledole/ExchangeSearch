@@ -3,7 +3,7 @@
 
 App for Currencies Exchange search, made for  Qpony recruitment process
 
-Technologies: Swift, NBP Web API
+Technologies: Swift 5, NBP Web API
 
 ## Preview
 

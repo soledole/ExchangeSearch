@@ -24,12 +24,14 @@ class MainViewController: UIViewController {
         tableExchange.delegate = self
         tableExchange.rowHeight = 60
         activityIndicator.hidesWhenStopped = true
+        tableExchange.refreshControl = UIRefreshControl()
+        tableExchange.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
         tableExchange.register(UINib(nibName: "ExchangeCell", bundle: nil), forCellReuseIdentifier: "ExchangeCell")
         
         //Load data first
+        self.activityIndicator.startAnimating()
         fetchExchanges(with: "A")
-        tableExchange.reloadData()
     }
     
     //MARK: - Main methods
@@ -39,14 +41,17 @@ class MainViewController: UIViewController {
         switch tableChoosed.selectedSegmentIndex {
         case 0:
             print("first table selected")
+            self.activityIndicator.startAnimating()
             fetchExchanges(with: "A")
             tableChoosedString = "A"
         case 1:
             print("secound table selected")
+            self.activityIndicator.startAnimating()
             fetchExchanges(with: "B")
             tableChoosedString = "B"
         case 2:
             print("third table selected")
+            self.activityIndicator.startAnimating()
             fetchExchanges(with: "C")
             tableChoosedString = "C"
         default:
@@ -56,11 +61,9 @@ class MainViewController: UIViewController {
     
     func fetchExchanges(with tableNumber: String) {
         
-        self.activityIndicator.startAnimating()
         let exchangeURL = "https://api.nbp.pl/api/exchangerates/tables/"
         
         let url = "\(exchangeURL+tableNumber)/?format=json"
-        print(url)
         
         if let url = URL(string: url) {
             
@@ -75,12 +78,13 @@ class MainViewController: UIViewController {
                             let results = try decoder.decode([Exchanges].self, from: safeData)
                             
                             //Special delay to show spinner
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             //DispatchQueue.main.async {
                                 self.exchangeResults = results[0].rates
                                 self.exchangeDate = results[0].effectiveDate
                                 self.tableExchange.reloadData()
                                 self.activityIndicator.stopAnimating()
+                                self.tableExchange.refreshControl?.endRefreshing()
                             }
                         } catch { print(error) }
                     }
@@ -89,8 +93,13 @@ class MainViewController: UIViewController {
             task.resume()
         }
     }
+    
+    //MARK: - Secondary methods
+    @objc private func didPullToRefresh() {
+        
+        fetchExchanges(with: tableChoosedString)
+    }
 }
-
 
 //MARK: - Extensions
 
